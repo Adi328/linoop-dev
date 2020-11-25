@@ -1,0 +1,14 @@
+---
+- name: Adding user via loop
+  hosts: all
+  vars:
+     users:
+     - jondoe
+     - brooklyn
+     - john
+  tasks:
+    - name: Adding users
+      user:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ users }}"
